@@ -2,3 +2,4 @@
 .vscode
 book
 *.exe
+__pycache__
