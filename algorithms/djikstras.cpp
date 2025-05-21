@@ -1,5 +1,7 @@
 // Djikstra's only works on non-negative weight  edges and needs a source
 
+// THIS IS A GREEDY ALGORITHM
+
 #include <iostream>
 #include <algorithm>
 #include <vector>

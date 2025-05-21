@@ -6,6 +6,10 @@ detect negative cycles as well.
 It works on the principle of relaxation of the edges.
 */
 
+// A point of difference with Djikstra's is also that this is NOT GREEDY
+
+// Time complexity is O(V \times E)
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
