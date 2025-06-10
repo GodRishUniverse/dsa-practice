@@ -42,7 +42,7 @@ int main(){
             if (j==n){
                 for (int k = j+1; k<n; k++){
                 if (nums[k]!=nums[j]){
-                    keys_to_max_size[nums[j]] = max(k-j, keys_to_max_size[nums[j]]);
+                    keys_to_max_size[nums[j]] = max(static_cast<ll>(k-j), keys_to_max_size[nums[j]]);
                     break; 
                 }
             }
