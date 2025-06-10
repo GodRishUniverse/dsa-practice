@@ -72,7 +72,7 @@ int main(){
                 if (!visited[a_node][b_node]) {
                         visited[a_node][b_node] = true;
                         edge.emplace_back((int)a_node, (int)b_node);
-                        if (a_node != b_node) {
+                        if (a_node != b_node && c1 == c2) {
                             count++;
                         }
                 }
