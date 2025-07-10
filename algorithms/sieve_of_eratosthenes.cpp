@@ -5,7 +5,7 @@
 #include <deque>
 #include <queue>
 
-#define ll long long
+using ll = long long;
 using namespace std;
 
 vector<ll> sieve_of_Eratosthenes(ll n){

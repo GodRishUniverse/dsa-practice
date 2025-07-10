@@ -4,8 +4,7 @@
 #include <cmath>
 #include <iostream>
 
-#define ll long long
-
+using ll = long long;
 using namespace std;
 
 // USED to get the palindromes in the string (longest palindrome centred at each place)

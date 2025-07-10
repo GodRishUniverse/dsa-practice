@@ -15,7 +15,7 @@ It works on the principle of relaxation of the edges.
 #include <vector>
 #include <queue> 
 
-#define ll long long
+using ll = long long;
 
 using namespace std;
 
