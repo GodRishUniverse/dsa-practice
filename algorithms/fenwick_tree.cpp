@@ -16,8 +16,14 @@ struct FenwickTree{
         binary_indexed_tree.assign(n+1, 0); // using one based indexing
     }
 
-    // TODO: Make
-    void make(const vector<ll>& arr){
+    FenwickTree(const vector<ll>& arr){
+        this->n = arr.size();
+        binary_indexed_tree.assign(arr.size()+1, 0);
+
+        // the idea is the odd positions get the same number and the even numbers get the sum of the previous numbers
+        for (size_t i =1; i <arr.size()+1; i++){
+            add(i, arr[i-1]);
+        }
 
     }
 
@@ -42,16 +48,26 @@ struct FenwickTree{
         return s;
     }
 
-    // get the sum
-    ll getSum( ll i){
-        if (i<=0){
-            throw invalid_argument("getSum: index has to be one based");
+
+    int query(int l, int r) {
+        if (l<=0 || r<=0 || l>=this->n+1 || r>=this->n+1){
+            throw invalid_argument("query: index has to be one based");
         }
-        return sum(i) - sum(i-1);
+
+        if (l == 1) return sum(r);
+        else return sum(r) - sum(l-1);
     }
 };
 
 
 int main(){
+
+    vector<ll> testArr {1,2,3,4,5,6,7,8,9,10};
+    FenwickTree ft = FenwickTree(testArr);
+
+    cout << "Sum from index 1 to index 9 is: (one-based indexing)" << ft.query(1, 9) <<endl; 
+
+
+
     
 }
