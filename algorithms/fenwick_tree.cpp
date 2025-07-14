@@ -5,6 +5,7 @@ using ll = long long;
 using namespace std;
 
 // source : https://www.youtube.com/watch?v=uSFzHCZ4E-8
+// https://medium.com/carpanese/a-visual-introduction-to-fenwick-tree-89b82cac5b3c
 
 struct FenwickTree{
     vector<ll> binary_indexed_tree;
