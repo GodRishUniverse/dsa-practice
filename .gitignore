@@ -3,3 +3,4 @@
 book
 *.exe
 __pycache__
+/notes/*.xopp

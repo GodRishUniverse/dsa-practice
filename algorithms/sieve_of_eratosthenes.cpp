@@ -10,7 +10,7 @@ using namespace std;
 
 vector<ll> sieve_of_Eratosthenes(ll n){
     if (n<2){
-        return {-1};
+        throw exception("NOT VALID");
     }
 
     vector<bool> A(n+1, true);
@@ -18,7 +18,7 @@ vector<ll> sieve_of_Eratosthenes(ll n){
     A[0] = false;
     A[1] = false;
 
-    for (ll i = 2; i*i<n; i++){
+    for (ll i = 2; i*i<=n; i++){
         if (A[i]){
             for (ll j = i*i; j <=n; j+=i){
                 A[j] =false;
