@@ -8,6 +8,7 @@
 using ll = long long;
 using namespace std;
 
+// TODO: TLE's on test case 4
 
 // Graph is represented as an adjacency list
 
@@ -52,14 +53,14 @@ void strong_connect(vector<vector<Edge>>& graph, ll v, stack<ll>& S, vector<bool
 
 }
 
-void printSCCs(vector<vector<ll>>& scc_list){
-    for (vector<ll>& v: scc_list){
-        cerr << "SCC : ";
-        for (ll& c : v) cerr << c <<", ";
-        cerr << endl;
-    }
+// void printSCCs(vector<vector<ll>>& scc_list){
+//     for (vector<ll>& v: scc_list){
+//         cerr << "SCC : ";
+//         for (ll& c : v) cerr << c <<", ";
+//         cerr << endl;
+//     }
 
-}
+// }
 
 
 vector<vector<ll>> tarjans_algorithm(vector<vector<Edge>>& graph){
@@ -79,19 +80,50 @@ vector<vector<ll>> tarjans_algorithm(vector<vector<Edge>>& graph){
         }
     }
 
-    printSCCs(scc_list);
+    // printSCCs(scc_list);
 
     return scc_list;
 }
 
 
-
-
 int main(){
+    ll tests;
+    cin >> tests;
 
-    vector<vector<Edge>> graph {{{1,1} } , {{1,6}, {1,4} , {1,2}}, {{1,3}}, {{1,2}, {1,4}, {1,5}}, {{1,5}}, {{1,4}}, {{1,0}, {1,2}}  };
-    vector<vector<ll>> scc = tarjans_algorithm(graph);
+    while(tests--){
+        ll n , m;
+        cin >> n >> m;
+        vector<vector<Edge>> graph(n);
+        while (m--){
+            ll a , b;
+            cin >> a >> b;
+            graph[a-1].push_back({-1, b-1});
+        }
 
+        vector<vector<ll>> scc = tarjans_algorithm(graph);
+        if (scc.size() <2){
+            cout << "NO" <<endl;
+        }else{
+            cout << "YES" <<endl;
+            cout << scc[0].size() << " " << n-scc[0].size() <<endl;
+            for (size_t i =0; i <scc[0].size(); i++){
+                if (i==scc[0].size()-1){
+                    cout << scc[0][i]+1 << endl;
+                }else{
+                    cout << scc[0][i]+1 << " ";
+                }
+            }
 
-    
+            for (size_t j =1; j < scc.size(); j ++){
+                for (size_t i =0; i <scc[j].size(); i++){
+                    if (i==scc[j].size()-1 && j == scc.size()-1){
+                        cout << scc[j][i]+1 << endl;
+                    }else{
+                        cout << scc[j][i]+1 << " ";
+                    }
+                }
+            }
+        }
+    }
+
 }

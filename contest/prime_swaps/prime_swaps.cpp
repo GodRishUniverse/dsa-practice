@@ -8,7 +8,7 @@
 using ll = long long;
 using namespace std;
 
-// TODO: Wrong answer on test 9 now (was TLE before) 
+// LEARNING ALWAYS USE 0-based indexing
 
 vector<pair<ll, ll>> answer;
 
@@ -60,7 +60,7 @@ vector<pair<ll,ll>> f(ll idx, vector<bool>& sieve, vector<vector<pair<ll,ll>>>& 
         return dp[idx];
     }
 
-    if ((idx +1) % 2 ==0 ){
+    if (idx % 2 ==0 ){
         for (size_t i=1; i<=idx/2; i++ ){
 
             if (sieve[i+1] && sieve[idx-i+1]){
