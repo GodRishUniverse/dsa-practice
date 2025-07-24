@@ -27,15 +27,6 @@ void Assign(vector<vector<Edge>>& graph, ll u , ll root, vector<ll>& assigned_co
     if (assigned_component_root[u] == -1){
         assigned_component_root[u] = root;
         components[root].push_back(u);
-        // get in- neighbours using a edge traversal O(E) here
-        vector<ll> in_neighbours;
-        for (size_t v = 0; v <graph.size(); v++){
-            for (Edge& e : graph[v]){
-                if (e.to_node == u){
-                    in_neighbours.push_back(v);
-                }
-            }
-        }
 
         for (ll& in_neighbour : in_neighbours){
             Assign(graph, in_neighbour, root, assigned_component_root, components);
@@ -56,6 +47,16 @@ vector<vector<ll>> kosaraju(vector<vector<Edge>>& graph ){
     vector<bool> visited (graph.size(), false);
     vector<ll> assigned_component (graph.size(), -1);
     stack<ll> L;
+
+
+    vector<vector<ll>> in_neighbours;
+    for (size_t v = 0; v <graph.size(); v++){
+        for (Edge& e : graph[v]){
+            if (e.to_node == u){
+                in_neighbours[u].push_back(v);
+            }
+        }
+    }
 
     for (size_t v = 0; v <graph.size(); v++){
         Visit(graph, v, L, visited);

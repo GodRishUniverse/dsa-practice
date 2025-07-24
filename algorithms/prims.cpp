@@ -29,7 +29,6 @@ struct Edge{
     }
 };
 
-
 // already using an adjacency list representation
 vector<Edge> prims_algorithm(vector<vector<Edge>> &graph_adj_list, ll number_of_vertices){
     vector<ll> cheapestCost(number_of_vertices, INF);
