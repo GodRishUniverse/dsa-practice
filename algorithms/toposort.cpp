@@ -58,5 +58,9 @@ vector<ll> toposort(vector<vector<Edge>>& graph){
 
 
 int main(){
-    
+    vector<vector<Edge>> graph {{{1,1},{1,2}}, {{1,2},{1,3}}, {{1,4}}, {{1,2}, {1,4}}, {}};
+
+    vector<ll> order =  toposort(graph);
+    for (ll o: order) cout << "VERTEX: " << o << endl;
+
 }
