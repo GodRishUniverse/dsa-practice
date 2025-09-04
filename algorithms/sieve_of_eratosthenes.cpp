@@ -4,6 +4,7 @@
 #include <utility>
 #include <deque>
 #include <queue>
+#include "stdexcept"
 
 using ll = long long;
 using namespace std;

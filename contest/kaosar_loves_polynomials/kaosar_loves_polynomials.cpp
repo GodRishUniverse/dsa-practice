@@ -23,7 +23,7 @@ ll power_fast(ll val, ll exponent){
 
 ll f(ll k, ll n){
     ll val {};
-    // the idea is that x is 1 so the polynomial is basically sum of the coefficients to the power k
+    // the idea is that x is 1 so the polynomial is basically sum of the coefficients to them power k
     for (ll i = 0; i<=n;i++){
         ll t;
         cin >> t;
