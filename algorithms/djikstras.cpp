@@ -5,7 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <queue> 
+#include <queue>
 
 
 using ll = long long;
@@ -16,27 +16,27 @@ const int INF = 1 << 25;     // 1 << 25 acts as our infinity
 
 
 struct Edge{
-    int to_node, weight; 
+    int to_node, weight;
 };
 
 
 vector<int> djikstras(int number_of_vertices, vector<vector<Edge>> &graph_adj_list, int source){
 
     // Min heap - default priority queue is max heap
-     using Node = pair<int,int>; 
-    priority_queue<Node, vector<Node>, 
+     using Node = pair<int,int>;
+    priority_queue<Node, vector<Node>,
                    greater<Node>> heap;
-    
+
     vector<int> dist(number_of_vertices, INF);
 
     dist[source] = 0;
     heap.emplace(0, source);
-    
+
     while( !heap.empty()){
         auto [d, vertex] = heap.top(); heap.pop();
 
-        if (d != dist[vertex]) continue;  
-        
+        if (d > dist[vertex]) continue; // same as != dis[vertex]
+
         for (const auto &u: graph_adj_list[vertex] ){
 
             if (dist[u.to_node] > d + u.weight){
@@ -54,13 +54,13 @@ int main(){
     // test
 
     /*
-    
+
     0 ---w=2---1
     |  w=1-----/
    w=7 /
     | /
     2----w=4----3
-    
+
     */
 
     // directed graph
@@ -84,7 +84,7 @@ int main(){
     }
 
     // another test
-    
+
 
 
 }
